@@ -2,7 +2,6 @@ const express = require("express")
 const mongoose = require("mongoose")
 const app = express()
 
-
 app.use(express.json())
 require("dotenv").config();
 
@@ -76,7 +75,7 @@ app.post("/muscle", async (req, res) => {
 });
 
 //User Entity
-const User = mongoose.model('User', {
+/*const User = mongoose.model('User', {
     name: String,
     email: String,
     password: String,
@@ -111,8 +110,11 @@ app.post("/user", async (req, res) => {
     });
     await user.save();
     return res.send(user);
-});
+});*/
 
+const usuarioRoutes = require("./routers/usuarioRouter")
+
+//app.use("/user", usuarioRoutes)
 
 require("./db")
 
